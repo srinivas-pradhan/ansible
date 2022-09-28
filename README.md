@@ -2,7 +2,9 @@
 
 ### Initialize the VMs
 
- - vagrant up --provision 
+```
+    vagrant up --provision 
+```
 
 ### SSH in the provisioned VMs
 
