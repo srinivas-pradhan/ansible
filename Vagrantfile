@@ -5,7 +5,7 @@ sudo yum install ansible-2.8.5-1.el7 -y
 SCRIPT
 
 playbook = ENV['PLAYBOOK'] || "playbook.yml"
-extra_vars = ENV['EXTRA_VARS']
+extra_vars = ENV['EXTRA_VARS'] || "default-vars.yml"
 
 Vagrant.configure(2) do |config|
   config.vm.synced_folder ".", "/ansible", type: "rsync"

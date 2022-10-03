@@ -1,7 +1,7 @@
 ---
-  - name: Run foo from role bar
+  - name: Default Playbook
     hosts: all
     tasks:
-      - include_role:
-          name: mongodb
-          tasks_from: install.yml
+    - name: Print a message
+      debug:
+        msg: "Please check {{ read_me }} for more information."

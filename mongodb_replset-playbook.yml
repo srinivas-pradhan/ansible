@@ -1,0 +1,7 @@
+---
+  - name: Run foo from role bar
+    hosts: all
+    tasks:
+      - include_role:
+          name: mongodb
+          tasks_from: install.yml
