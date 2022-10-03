@@ -1,0 +1,27 @@
+---
+  - name: Run foo from role bar
+    hosts: all
+    tasks:
+    # include the role, but tasks from other.yml
+      - include_role:
+          name: mongodb
+          tasks_from: install.yml
+
+  #   roles:
+  #   - mongodb.install
+  # - name: Shell Examples
+  #   hosts: all
+  #   tasks:
+
+  #   - name: Check Date with Shell command
+  #     shell:
+  #        "date"
+  #     register: datecmd
+  #     tags: datecmd
+
+  #   - debug: msg="{{datecmd.stdout}}"
+
+  #   - name: check file that does exist with state file
+  #     file:
+  #       path: /tmp/test_file
+  #       state: touch

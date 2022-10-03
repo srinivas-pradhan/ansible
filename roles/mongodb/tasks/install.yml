@@ -1,0 +1,4 @@
+---
+  - name: Print a message
+    debug:
+      msg: "this task runs in install file"

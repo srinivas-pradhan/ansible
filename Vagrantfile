@@ -5,7 +5,7 @@ sudo yum install ansible-2.8.5-1.el7 -y
 SCRIPT
 
 Vagrant.configure(2) do |config|
-  config.vm.synced_folder "./playbooks", "/ansible", type: "rsync"
+  config.vm.synced_folder ".", "/ansible", type: "rsync"
   config.vm.synced_folder '.', '/vagrant', disabled: true
   config.vm.box = "ppggff/centos-7-aarch64-2009-4K"
   config.vm.provision "shell", inline: $script
