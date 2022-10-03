@@ -1,5 +1,13 @@
 # Vagrant Setup
-
+### Export environment variables
+#### Ansible PLaybook Name
+```
+    export PLAYBOOK=[PLAYBOOK_NAME]
+```
+#### VARS File Ansible Override Vars File
+```
+    export EXTRA_VARS=[EXTRA_VARS]
+```
 ### Initialize the VMs
 ```
     vagrant up --provision 

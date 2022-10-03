@@ -4,6 +4,9 @@ sudo yum install epel-release -y
 sudo yum install ansible-2.8.5-1.el7 -y
 SCRIPT
 
+playbook = ENV['PLAYBOOK'] || "playbook.yml"
+extra_vars = ENV['EXTRA_VARS']
+
 Vagrant.configure(2) do |config|
   config.vm.synced_folder ".", "/ansible", type: "rsync"
   config.vm.synced_folder '.', '/vagrant', disabled: true
@@ -15,8 +18,9 @@ Vagrant.configure(2) do |config|
       qe.ssh_port = 20022
     end
     kube1.vm.provision "ansible_local" do |ansible|
-  	  ansible.playbook = "playbook.yml"
+  	  ansible.playbook = playbook
       ansible.provisioning_path = "/ansible"
+      ansible.extra_vars = extra_vars
     end
   end
   config.vm.define "kube2" do |kube2|
@@ -26,8 +30,9 @@ Vagrant.configure(2) do |config|
       qe.hostname = "kube2"
     end
     kube2.vm.provision "ansible_local" do |ansible|
-  	  ansible.playbook = "playbook.yml"
+  	  ansible.playbook = playbook
       ansible.provisioning_path = "/ansible"
+      ansible.extra_vars = extra_vars
     end
   end
   config.vm.define "kube3" do |kube3|
@@ -37,8 +42,9 @@ Vagrant.configure(2) do |config|
       qe.hostname = "kube1"
     end
     kube3.vm.provision "ansible_local" do |ansible|
-  	  ansible.playbook = "playbook.yml"
+  	  ansible.playbook = playbook
       ansible.provisioning_path = "/ansible"
+      ansible.extra_vars = extra_vars
     end
   end
 end

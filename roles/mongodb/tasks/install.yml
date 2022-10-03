@@ -1,4 +1,4 @@
 ---
   - name: Print a message
     debug:
-      msg: "this task runs in install file"
+      msg: "this task runs in install file - value {{ base_path }} froms vars file"
