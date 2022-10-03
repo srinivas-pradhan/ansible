@@ -1,3 +1,5 @@
 ---
 # vars file for mongodb
-base_path: "OVERRIDE_VALUE"
+base_url: "OVERRIDE_VALUE"
+repo_ver: "OVERRIDE_VALUE"
+gpg_key: "OVERRIDE_VALUE"

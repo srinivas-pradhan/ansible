@@ -1,6 +1,7 @@
 ---
   - name: Run foo from role bar
     hosts: all
+    become: yes
     tasks:
       - include_role:
           name: mongodb
