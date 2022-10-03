@@ -1,6 +1,6 @@
 # Vagrant Setup
 ### Export environment variables
-#### Ansible PLaybook Name
+#### Ansible Playbook Name
 ```
     export PLAYBOOK=[PLAYBOOK_NAME]
 ```
@@ -14,9 +14,7 @@
 ```
 ### SSH in the provisioned VMs
 ```
-    vagrant ssh kube1
-    vagrant ssh kube2
-    vagrant ssh kube3
+    vagrant ssh [VM_NAME]
 ```
 ### Destroy the VMs
 ```
