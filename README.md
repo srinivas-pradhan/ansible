@@ -4,7 +4,7 @@
 ```
     export PLAYBOOK=[PLAYBOOK_NAME]
 ```
-#### VARS File Ansible Override Vars File
+#### VARS File (Ansible Override Vars File)
 ```
     export EXTRA_VARS=[EXTRA_VARS]
 ```
