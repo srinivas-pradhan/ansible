@@ -1,4 +1,8 @@
 $script = <<-'SCRIPT'
+sudo rm /etc/machine-id
+sudo systemd-machine-id-setup
+cat /etc/machine-id
+sudo systemctl restart network
 echo "Install ansible on guest machines."
 sudo yum install epel-release -y
 sudo yum install ansible-2.8.5-1.el7 -y
@@ -14,7 +18,6 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: $script
   config.vm.define "host1" do |host1|
     host1.vm.hostname = "host1"
-    host1.vm.network "private_network", type: "dhcp"
     host1.vm.provider "qemu" do |qe|
       qe.ssh_port = 20022
     end
@@ -26,10 +29,8 @@ Vagrant.configure(2) do |config|
   end
   config.vm.define "host2" do |host2|
     host2.vm.hostname = "host2"
-    host2.vm.network "private_network", type: "dhcp"
     host2.vm.provider "qemu" do |qe|
       qe.ssh_port = 20023
-      qe.hostname = "kube2"
     end
     host2.vm.provision "ansible_local" do |ansible|
   	  ansible.playbook = playbook
@@ -38,11 +39,9 @@ Vagrant.configure(2) do |config|
     end
   end
   config.vm.define "host3" do |host3|
-    host3.vm.hostname = "kube3"
-    host3.vm.network "private_network", type: "dhcp"
+    host3.vm.hostname = "host3"
     host3.vm.provider "qemu" do |qe|
       qe.ssh_port = 20024
-      qe.hostname = "kube1"
     end
     host3.vm.provision "ansible_local" do |ansible|
   	  ansible.playbook = playbook
