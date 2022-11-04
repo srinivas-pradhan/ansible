@@ -1,5 +1,5 @@
 ---
-  - name: Run foo from role bar
+  - name: MongoDB
     hosts: all
     become: yes
     tasks:

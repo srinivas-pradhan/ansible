@@ -6,3 +6,18 @@
       owner: root
       group: root
       mode: '0644'
+
+  - name: "Template to override /etc/yum.conf"
+    template:
+      src: "yum.conf.j2"
+      dest: "/etc/yum.conf"
+      owner: root
+      group: root
+      mode: '0644'
+
+  - name: "Install MongoDB packages"
+    yum:
+      name: "{{ packages }}"
+      state: installed
+    vars:
+      packages: "{{ mdb_pkgs }}"

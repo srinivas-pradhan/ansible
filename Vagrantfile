@@ -27,28 +27,6 @@ Vagrant.configure(2) do |config|
       ansible.extra_vars = extra_vars
     end
   end
-  config.vm.define "host2" do |host2|
-    host2.vm.hostname = "host2"
-    host2.vm.provider "qemu" do |qe|
-      qe.ssh_port = 20023
-    end
-    host2.vm.provision "ansible_local" do |ansible|
-  	  ansible.playbook = playbook
-      ansible.provisioning_path = "/ansible"
-      ansible.extra_vars = extra_vars
-    end
-  end
-  config.vm.define "host3" do |host3|
-    host3.vm.hostname = "host3"
-    host3.vm.provider "qemu" do |qe|
-      qe.ssh_port = 20024
-    end
-    host3.vm.provision "ansible_local" do |ansible|
-  	  ansible.playbook = playbook
-      ansible.provisioning_path = "/ansible"
-      ansible.extra_vars = extra_vars
-    end
-  end
 end
 
 
