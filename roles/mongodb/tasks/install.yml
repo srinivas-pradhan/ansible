@@ -26,7 +26,8 @@
     yum:
       name: mongodb-org
       state: installed
-      
+      enablerepo: "{{ repo_ver }}"
+      disablerepo: "*"
     # yum:
     #   name: "{{ packages }}"
     #   state: installed
