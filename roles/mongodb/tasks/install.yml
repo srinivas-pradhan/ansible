@@ -27,5 +27,6 @@
       name: "{{ packages }}"
       state: installed
       enablerepo: "{{ repo_ver }}"
+      disablerepo: "*"
     vars:
       packages: "{{ mdb_pkgs }}"
