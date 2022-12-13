@@ -1,12 +1,12 @@
 ---
   - name: "Create yum repo /etc/yum.repos.d/{{ repo_ver }}.repo"
     yum_repository:
-      name: {{ repo_ver }}
+      name: "{{ repo_ver }}"
       description: MongoDB Repository
-      baseurl: {{ base_url }}
+      baseurl: "{{ base_url }}"
       enabled: yes
       gpgcheck: yes
-      gpgkey: {{ gpg_key }}
+      gpgkey: "{{ gpg_key }}"
     # template:
     #   src: "{{ repo_ver }}.repo.j2"
     #   dest: "/etc/yum.repos.d/{{ repo_ver }}.repo"
