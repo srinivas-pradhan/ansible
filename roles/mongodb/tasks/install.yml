@@ -29,4 +29,4 @@
       enablerepo: "{{ repo_ver }}"
       disablerepo: "*"
     vars:
-      packages: "{{ mdb_pkgs }}"
+      packages: "[mongodb-org]"
