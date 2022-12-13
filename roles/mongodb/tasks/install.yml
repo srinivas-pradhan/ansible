@@ -26,5 +26,6 @@
     yum:
       name: "{{ packages }}"
       state: installed
+      enablerepo: "{{ repo_ver }}"
     vars:
       packages: "{{ mdb_pkgs }}"
