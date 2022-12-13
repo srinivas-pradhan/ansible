@@ -1,6 +1,6 @@
 ---
   - name: Default Playbook
-    hosts: all
+    hosts: localhost
     tasks:
     - name: Print a message
       debug:

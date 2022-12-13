@@ -20,3 +20,8 @@
 ```
     vagrant destroy -f 
 ```
+
+### Run Ansible playbook manually
+```
+ansible-playbook --extra-vars @[EXTRA_VARS_FILE] [PLAYBOOK_NAME]
+```
