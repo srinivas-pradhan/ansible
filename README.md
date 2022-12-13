@@ -1,4 +1,4 @@
-# Run Ansible playbook manually
+# Run Ansible Playbook 
 ```
 ansible-playbook --extra-vars @[EXTRA_VARS_FILE] [PLAYBOOK_NAME]
 ```
