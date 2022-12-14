@@ -24,14 +24,7 @@
 
   - name: "Install MongoDB packages"
     yum:
-      name: mongodb-org
+      name: "{{ packages }}"
       state: installed
-      enablerepo: "{{ repo_ver }}"
-      disablerepo: "*"
-    # yum:
-    #   name: "{{ packages }}"
-    #   state: installed
-    #   enablerepo: "{{ repo_ver }}"
-    #   disablerepo: "*"
-    # vars:
-    #   packages: "[mongodb-org]"
+    vars:
+      packages: "{{ mdb_pkgs }}"
