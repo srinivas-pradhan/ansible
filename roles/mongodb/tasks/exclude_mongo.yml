@@ -1,12 +1,13 @@
 ---
   - name: Check whether /etc/yum.conf contains "exclude"
-    command: grep "exclude=" /etc/yum.conf | awk -F '=' '{print$2}'
-    register: exclude_packages
-    check_mode: no
-    ignore_errors: yes
-    changed_when: no
-  
-  - debug: msg={{ exclude_packages }}
+      lineinfile:
+        path: /etc/yum.conf
+        line: "^exclude="
+        state: present
+        backup: yes
+      register: exclude_pkgs
+      
+  - debug: msg={{ exclude_pkgs }}
 
   - name: "Template to override /etc/yum.conf"
     template:
