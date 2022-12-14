@@ -23,8 +23,20 @@
   #     mode: '0644'
 
   - name: "Install MongoDB packages"
+    # yum:
+    #   name: "{{ packages }}"
+    #   state: installed
+    # vars:
+    #   packages: "{{ mdb_pkgs }}"
     yum:
-      name: "{{ packages }}"
+      name: mongodb-org
       state: installed
-    vars:
-      packages: "{{ mdb_pkgs }}"
+      enablerepo: "{{ repo_ver }}"
+      disablerepo: "*"
+    # yum:
+    #   name: "{{ packages }}"
+    #   state: installed
+    #   enablerepo: "{{ repo_ver }}"
+    #   disablerepo: "*"
+    # vars:
+    #   packages: "[mongodb-org]"
