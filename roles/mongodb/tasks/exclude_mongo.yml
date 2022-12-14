@@ -1,6 +1,12 @@
 ---
-  - debug:
-        msg: "{{ lookup('exclude=', file='/etc/yum.conf') }}"
+  - name: Check whether /etc/yum.conf contains "exclude"
+    command: grep "exclude=" /etc/yum.conf | awk -F '=' '{print$2}'
+    register: exclude_packages
+    check_mode: no
+    ignore_errors: yes
+    changed_when: no
+  
+  debug: msg={{ exclude_packages }}
 
   - name: "Template to override /etc/yum.conf"
     template:
