@@ -7,12 +7,6 @@
       enabled: yes
       gpgcheck: yes
       gpgkey: "{{ gpg_key }}"
-    # template:
-    #   src: "{{ repo_ver }}.repo.j2"
-    #   dest: "/etc/yum.repos.d/{{ repo_ver }}.repo"
-    #   owner: root
-    #   group: root
-    #   mode: '0644'
 
   # - name: "Template to override /etc/yum.conf"
   #   template:
@@ -23,20 +17,8 @@
   #     mode: '0644'
 
   - name: "Install MongoDB packages"
-    # yum:
-    #   name: "{{ packages }}"
-    #   state: installed
-    # vars:
-    #   packages: "{{ mdb_pkgs }}"
     yum:
       name: mongodb-org
       state: installed
       enablerepo: "{{ repo_ver }}"
       disablerepo: "*"
-    # yum:
-    #   name: "{{ packages }}"
-    #   state: installed
-    #   enablerepo: "{{ repo_ver }}"
-    #   disablerepo: "*"
-    # vars:
-    #   packages: "[mongodb-org]"
