@@ -1,4 +1,4 @@
-base_url: 'https://repo.mongodb.org/yum/amazon/2/mongodb-org/6.0/x86_64/'
+base_url: 'https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/6.0/x86_64/'
 repo_ver: 'mongodb-org-6.0'
 gpg_key: https://www.mongodb.org/static/pgp/server-6.0.asc
 exclude_package: "mongodb-org,mongodb-org-database,mongodb-org-server,mongodb-mongosh,mongodb-org-mongos,mongodb-org-tools"
