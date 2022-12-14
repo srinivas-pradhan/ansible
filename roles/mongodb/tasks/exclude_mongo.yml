@@ -1,13 +1,11 @@
 ---
-  vars:
-     contents: "{{ lookup('exclude=', '/etc/yum.conf') }}"
-  tasks:
-    - debug: msg="the value of foo.txt is {{ contents }}"
+  - debug:
+        msg: "{{ lookup('exclude=', file='/etc/yum.conf') }}"
 
-    - name: "Template to override /etc/yum.conf"
-      template:
-        src: "yum.conf.j2"
-        dest: "/etc/yum.conf"
-        owner: root
+  - name: "Template to override /etc/yum.conf"
+    template:
+      src: "yum.conf.j2"
+      dest: "/etc/yum.conf"
+      owner: root
       group: root
       mode: '0644'
