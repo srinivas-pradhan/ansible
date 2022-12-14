@@ -6,7 +6,7 @@
     ignore_errors: yes
     changed_when: no
   
-  debug: msg={{ exclude_packages }}
+  - debug: msg={{ exclude_packages }}
 
   - name: "Template to override /etc/yum.conf"
     template:
