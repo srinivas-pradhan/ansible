@@ -1,14 +1,4 @@
 ---
-  - name: "Check whether /etc/yum.conf contains exclude"
-    lineinfile:
-      path: /etc/yum.conf
-      line: "^exclude="
-      state: present
-      backup: yes
-    register: exclude_pkgs
-
-  - debug: msg={{ exclude_pkgs }}
-
   - name: "Template to override /etc/yum.conf"
     template:
       src: "yum.conf.j2"
