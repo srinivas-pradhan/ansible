@@ -1,0 +1,8 @@
+---
+  - name: "Add template to modify the configuration file"
+    template:
+      src: "yum.conf.j2"
+      dest: "/etc/yum.conf"
+      owner: mongod
+      group: mongod
+      mode: '0644'
