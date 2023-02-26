@@ -1,6 +1,6 @@
 ---
   - name: MongoDB
-    hosts: localhost
+    hosts: all
     become: yes
     tasks:
       - include_role:
